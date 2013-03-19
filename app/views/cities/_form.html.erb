@@ -1,0 +1,23 @@
+<%= form_for(@city) do |c| %>
+  <div class="field">
+    <%= c.label :name, "City Name" %><br />
+    <%= c.text_field :name, :placeholder => "e.g., New York"%><br />
+  </div>
+    
+    
+    <%= c.fields_for :restaurants do |r| %>
+      <div class="field">
+        <%= r.label :name%>
+        <%= r.text_field :name  %>
+        <%= r.label :review, "Restaurant Review" %>
+        <%= r.text_field :review %><br />
+      </div>
+    <% end %>
+
+    
+    <div class="actions">
+      <%= c.submit "Add" %>
+    </div>
+  
+<% end %>
+

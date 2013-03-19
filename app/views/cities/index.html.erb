@@ -1,0 +1,22 @@
+<h1>Listing Cities</h1>
+
+<table>
+
+  <% @cities.each do |c| %>
+    <tr>
+      <%= c.name %> <br />
+    </tr>
+    <% c.restaurants.each do |r| %>
+      <tr>
+        <td><%= r.name %> &#160 | &#160</td>
+        <td><%= r.review %></td>
+      </tr> <br />
+    
+
+    <% end%>
+  
+</table>
+<% end %>
+<br />
+
+<%= link_to 'New City', new_city_path %>
