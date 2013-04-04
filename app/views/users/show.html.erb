@@ -1,10 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
+  <b>Current User:</b>
   <%= current_user.email %>
+</p>
+<p>
+  <b>User:</b>
+  <%# raise params.inspect %>
+  <%= @user.email %>
 </p>
 
 
+
+
+
+
+
+<br>
 
 <%= link_to 'Back', users_path %>

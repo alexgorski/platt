@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def show
-    
+    @user = User.find(params[:id])
   end
 
   def create
@@ -12,14 +12,14 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      redirect_to restaurants_path, notice: "Thank you for signing up"
+      redirect_to user_path(@user), notice: "Thank you for signing up"
     else
       render "new"
     end
 
   end
   def index
-    @users = Users.all
+    @users = User.all
   end
 
 end

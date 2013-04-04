@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
-      redirect_to restaurants_path, notice: "Logged in!"
+      redirect_to user_path(user), notice: "Logged in!"
     else
       flash.now.alert = "Email or password is diceless"
     render "new"
@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
   end
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Logged out"
+    redirect_to new_session_url, notice: "Logged out"
   end
 end

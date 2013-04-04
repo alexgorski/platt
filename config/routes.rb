@@ -1,8 +1,14 @@
 Platt::Application.routes.draw do
+  resources :reviews
+
+
+  resources :lists
+
+
   resources :cities
 
 
-  root :to => 'cities#index'
+  root :to => 'restaurants#index'
   resources :restaurants
 
 

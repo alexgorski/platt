@@ -1,1 +1,25 @@
 <h1>The Platt 101 </h1>
+
+
+  <div class="container">
+    <table>
+      <th class="rank">Rank</th>
+      <th class="name">Name</th>
+      <th class="stars">Stars</th>
+      <!-- <th class="my_review">My Review</th> -->
+      <th class="comments">Comments</th>
+      <% @restaurants.each do |r| %>
+      <tr>  
+        <td class="rank"><%= r.rank %></td> 
+        <td class="name"><%= r.name %></td> 
+        <td class="stars"><%= r.stars %></td>
+        <% @review = Review.comments(current_user.id, r.id) %>
+        <!-- <td class="my_review"><%= link_to "Review", edit_review_path(@review.id) %></td> -->
+
+       <td class="comments"><%= link_to (Review.comments(current_user.id, r.id)).comments, edit_review_path(@review.id)  %></td> 
+      </tr>
+      <% end %>  
+    </table>
+  </div>
+
+

@@ -1,0 +1,30 @@
+<h1>The Platt 101: My Reviews </h1>
+
+
+  <div class="contained">
+    <table>
+      <th class="rank">Rank</th>
+      <th class="name">Name</th>
+      <th class="stars">Stars</th>
+      <th class="date_dined">Date Dined</th>
+      <th class="comments">Comments</th>
+      <% @reviews.sort.each do |r| %>
+      <tr>
+        <td class="rank">
+          <%= Restaurant.find(r.restaurant_id).rank %>
+        </td>
+        <td class="name">
+          <%= link_to Restaurant.find(r.restaurant_id).name, restaurant_path(r.restaurant_id) %>
+        </td>
+        <td class="stars"><%= Restaurant.find(r.restaurant_id).stars %>
+        </td>
+        <td class="date_dined">
+        <%= r.date_dined %> 
+      </td>
+      <td class="comments">
+        <%= link_to r.comments, edit_review_path(r.id) %>
+      </td> 
+
+      <% end %>  
+    </table>
+  </div>

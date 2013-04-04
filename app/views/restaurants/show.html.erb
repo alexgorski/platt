@@ -1,0 +1,8 @@
+show.html.erb
+
+<h1><%= @restaurant.name %></h1>
+<h2>Rank: <%= @restaurant.rank.chop %></h2>
+<h2>Stars: <%= @restaurant.stars %></h2>
+<h2>NY MAG Review:<%= link_to @restaurant.name, "http://nymag.com/listings/restaurant/#{@restaurant.nymag_page}" %> </h2>
+<% @review = Review.comments(current_user.id, @restaurant.id) %>
+<h2><%=link_to "Add Review", edit_review_path(@review.id) %>   </h2>

@@ -1,15 +1,16 @@
 <%= form_for(@city) do |c| %>
   <div class="field">
-    <%= c.label :name, "City Name" %><br />
-    <%= c.text_field :name, :placeholder => "e.g., New York"%><br />
+    <%= c.label :name, "City Name" %>
+
+    <%= c.select :name, @cities %><br />
   </div>
     
     
     <%= c.fields_for :restaurants do |r| %>
       <div class="field">
-        <%= r.label :name%>
+        <%= r.label :name, "Restaurant" %>
         <%= r.text_field :name  %>
-        <%= r.label :review, "Restaurant Review" %>
+        <%= r.label :review, "Review" %>
         <%= r.text_field :review %><br />
       </div>
     <% end %>
