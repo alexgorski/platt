@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409145221) do
+ActiveRecord::Schema.define(:version => 20130409191929) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -22,13 +22,38 @@ ActiveRecord::Schema.define(:version => 20130409145221) do
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "city_id"
     t.string   "rank"
     t.string   "stars"
     t.string   "nymag_page"
     t.string   "yelp_id"
+    t.text     "yelp_image_url"
+    t.text     "yelp_url"
+    t.text     "yelp_phone"
+    t.text     "yelp_display_phone"
+    t.text     "yelp_review_count"
+    t.text     "yelp_categories"
+    t.text     "yelp_rating"
+    t.text     "yelp_rating_img_url"
+    t.text     "yelp_rating_img_url_small"
+    t.text     "yelp_rating_img_url_large"
+    t.text     "yelp_snippet_text"
+    t.text     "yelp_location"
+    t.text     "yelp_location_coordinate"
+    t.text     "yelp_location_coordinate_latitude"
+    t.text     "yelp_location_coordinate_longitude"
+    t.text     "yelp_location_address"
+    t.text     "yelp_location_display_address"
+    t.text     "yelp_location_city"
+    t.text     "yelp_location_state_code"
+    t.text     "yelp_location_postal_code"
+    t.text     "yelp_location_country_code"
+    t.text     "yelp_location_cross_streets"
+    t.text     "yelp_location_neighborhoods"
+    t.text     "yelp_location_geo_accuracy"
+    t.text     "yelp_deals"
   end
 
   create_table "reviews", :force => true do |t|
