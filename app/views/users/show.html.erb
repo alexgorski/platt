@@ -10,12 +10,15 @@
   <%= @user.email %>
 </p>
 
+<%#= form_tag user_path, :method => "get" do %>
+  <%#= text_field_tag :search, params[:search], :placeholder => "Search for a restaurant" %>
+  <%#= submit_tag "Search" %>
+ <%# end %>
 
 
+<input type="text" id="keyword" val=""/>&nbsp;
+		<button type="button" id="search">search</button>
+		<div id = "feed">
 
-
-
-
-<br>
 
 <%= link_to 'Back', users_path %>

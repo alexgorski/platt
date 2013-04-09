@@ -5,9 +5,12 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
+  encoding: unicode
   database: platt_development
+  pool: 5
+  host: localhost
+  username: ericiacutone
   password:
-  username: AlexGorski
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
