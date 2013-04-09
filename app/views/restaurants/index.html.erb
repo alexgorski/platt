@@ -5,6 +5,7 @@
     <table>
       <th class="rank">Rank</th>
       <th class="name">Name</th>
+      <th class="name">Name</th>
       <th class="stars">Stars</th>
       <!-- <th class="my_review">My Review</th> -->
       <th class="comments">Comments</th>
@@ -12,6 +13,7 @@
       <tr>  
         <td class="rank"><%= r.rank %></td> 
         <td class="name"><%= r.name %></td> 
+        <td class="name"><%= r.yelp_review_count %></td> 
         <td class="stars"><%= r.stars %></td>
         <% @review = Review.comments(current_user.id, r.id) %>
         <!-- <td class="my_review"><%= link_to "Review", edit_review_path(@review.id) %></td> -->
