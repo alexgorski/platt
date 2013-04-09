@@ -18,4 +18,10 @@ task :insert_platt101 => :environment do
     @restaurant.save
   end
 
+  task :find_yelp_id => :environment do
+
+
+
+  end
+
 end

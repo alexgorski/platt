@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  attr_accessible :name, :nymag_page, :city_id
+  attr_accessible :name, :nymag_page, :city_id, :yelp_id
   belongs_to :city
 
   has_many :reviews

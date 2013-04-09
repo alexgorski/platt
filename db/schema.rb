@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401175532) do
+ActiveRecord::Schema.define(:version => 20130409145221) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130401175532) do
     t.string   "rank"
     t.string   "stars"
     t.string   "nymag_page"
+    t.string   "yelp_id"
   end
 
   create_table "reviews", :force => true do |t|
