@@ -12,7 +12,7 @@
       <% @restaurants.each do |r| %>
       <tr>  
         <td class="rank"><%= r.rank %></td> 
-        <td class="name"><%= r.name %></td> 
+        <td class="name"><%= link_to r.name, restaurant_path(r.id) %></td> 
         <td class="name"><%= r.yelp_review_count %></td> 
         <td class="stars"><%= r.stars %></td>
         <% @review = Review.comments(current_user.id, r.id) %>
