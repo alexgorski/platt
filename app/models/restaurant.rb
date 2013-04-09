@@ -6,5 +6,14 @@ class Restaurant < ActiveRecord::Base
   has_many :users, :through => :reviews, :dependent => :destroy
   
   accepts_nested_attributes_for :users
+
+  latlon = Restaurant.all
+  @lat = []
+  @lon = []
+  latlon.each do |s|
+  	@lat << s.yelp_location_coordinate_latitude
+  	@lon << s.yelp_location_coordinate_longitude
+  end
+
 end
 

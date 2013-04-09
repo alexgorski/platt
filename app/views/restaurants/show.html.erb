@@ -1,4 +1,52 @@
-show.html.erb
+<script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3ErgRtY1qqttegTHE61e6ous0Jhnnymg&sensor=true">
+    </script>
+
+    
+  </head>
+
+
+  <body>
+    <div id="map-canvas" style="width:500px;height=500px"></div>
+  </body>
+
+  <script type="text/javascript">
+    var myCenter=new google.maps.LatLng(@lat,@lon);
+
+      function initialize() {
+        var mapOptions = {
+          center: myCenter,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+
+        var marker=new google.maps.Marker({
+			  	position:myCenter,
+			  });
+
+			  marker.setMap(map)
+
+			  var infowindow = new google.maps.InfoWindow({
+			  content:"Hello World!"
+			  });
+
+			google.maps.event.addListener(marker, 'click', function() {
+			  infowindow.open(map,marker);
+			  });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</script>
+
 
 <h1><%= @restaurant.name %></h1>
 <h2>Rank: <%= @restaurant.rank.chop %></h2>
@@ -6,3 +54,5 @@ show.html.erb
 <h2>NY MAG Review:<%= link_to @restaurant.name, "http://nymag.com/listings/restaurant/#{@restaurant.nymag_page}" %> </h2>
 <% @review = Review.comments(current_user.id, @restaurant.id) %>
 <h2><%=link_to "Add Review", edit_review_path(@review.id) %>   </h2>
+
+
