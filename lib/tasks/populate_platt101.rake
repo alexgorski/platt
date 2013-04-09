@@ -15,7 +15,7 @@ task :insert_platt101 => :environment do
     @restaurant.rank = array[0]
     @restaurant.name = array[1].lstrip!
     @restaurant.stars = array[2]
-    @restaurant.nymag_page = array[1].gsub(" ", '-')
+    @restaurant.nymag_page = array[1].gsub(" ", '-').downcase
     @restaurant.save
   end
 
