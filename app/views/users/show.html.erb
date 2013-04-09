@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3ErgRtY1qqttegTHE61e6ous0Jhnnymg&sensor=true">
+    </script>
+
 <p>
   <b>Current User:</b>
   <%= current_user.email %>
@@ -16,9 +20,16 @@
  <%# end %>
 
 
-<input type="text" id="keyword" val=""/>&nbsp;
+<input type="text" id="keyword" val=""/>
 		<button type="button" id="search">search</button>
-		<div id = "feed">
+		<div id="feed">
+		<div id="map_canvas"></div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascripts/twitter.js"></script>
+    <script type="text/javascript" src="assets/javascripts/gmaps.js"></script>
+    
 
 
 <%= link_to 'Back', users_path %>
