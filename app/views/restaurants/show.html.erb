@@ -27,14 +27,23 @@
         var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
       
         var marker = new google.maps.Marker({
-			  	position:myCenter
+			  	position:myCenter,
+          <% unless current_user.reviews.where(:restaurant_id => @restaurant.id).first.date_dined == nil %>
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            <% else %>
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            <% end %>
 			  });
 
 			  marker.setMap(map);
 
-			  var infowindow = new google.maps.InfoWindow({
-			  content:"Hello World!"
-			  });
+        var contentString = '<div>Restaurant: <%= @restaurant.name %></div>' + '<br>' + '<div>Current Rank: <%= @restaurant.rank %></div>' + '<br>' +'<div>Phone: <%= @restaurant.yelp_display_phone %></div>'+ '<br>' +'<div>Yelp Review: <img src=<%= @restaurant.yelp_rating_img_url_small %>> </div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+          });
+
+			 
 
 			google.maps.event.addListener(marker, 'click', function() {
 			  infowindow.open(map,marker);
