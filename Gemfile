@@ -24,7 +24,9 @@ gem 'debugger'
 gem 'jquery-rails'
 gem 'pry'
 gem 'yelpster'
-#gem 'tweetstream'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 group :development do
   gem 'better_errors'
