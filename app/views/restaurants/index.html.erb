@@ -43,17 +43,32 @@
           
           var markerposition = new google.maps.LatLng(<%=r.yelp_location_coordinate_latitude%>,<%=r.yelp_location_coordinate_longitude%>);
           
-          var marker = new google.maps.Marker({
+          var marker<%=r.id%> = new google.maps.Marker({
             position:markerposition
           });
 
-          marker.setMap(map);
+          marker<%=r.id%>.setMap(map);
+
+          var contentString = '<%= r.name %>';
+
+          var infowindow<%=r.id%> = new google.maps.InfoWindow({
+            content: contentString
+            });
+
+          google.maps.event.addListener(marker<%=r.id%>, 'click', function() {
+            infowindow<%=r.id%>.open(map,marker<%=r.id%>);
+          });
           <% end %>
 
           
         }
         google.maps.event.addDomListener(window, 'load', initialize);
       </script>
+
+      //what content do we want in info window
+      //how to close infowindow
+      //how to change user marker from red to green when a user goes to a restaurant
+
 
 
 
