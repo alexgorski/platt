@@ -24,7 +24,7 @@ gem 'debugger'
 gem 'jquery-rails'
 gem 'pry'
 gem 'yelpster'
-gem 'tweetstream'
+#gem 'tweetstream'
 
 group :development do
   gem 'better_errors'
