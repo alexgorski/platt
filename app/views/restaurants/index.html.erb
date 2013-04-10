@@ -25,7 +25,7 @@
   </div>
     
 
-  <div class="map" id="map-canvas" style="width:800px;height=600px"></div>
+  <div class="map" id="map-canvas" style="width:1000px;height=1000px"></div>
     <script type="text/javascript">
 
         var myCenter = new google.maps.LatLng(40.768783,-73.983148);
@@ -33,7 +33,7 @@
         function initialize() {
           var mapOptions = {
             center: myCenter,
-            zoom: 12,
+            zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };
 
@@ -45,9 +45,11 @@
           
           var marker<%=r.id%> = new google.maps.Marker({
             position:markerposition,
-            <% if r.id == 50..70 %>
+            <% unless current_user.reviews.where(:restaurant_id => r.id).first.date_dined == nil %>
             icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-            <%else%><%end%>
+            <% else %>
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            <% end %>
           });
 
           marker<%=r.id%>.setMap(map);
