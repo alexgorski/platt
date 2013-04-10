@@ -8,7 +8,7 @@ Platt::Application.routes.draw do
   resources :cities
 
 
-  root :to => 'restaurants#index'
+  root :to => 'users#new'
   resources :restaurants
 
 
