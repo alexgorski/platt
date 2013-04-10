@@ -44,12 +44,15 @@
           var markerposition = new google.maps.LatLng(<%=r.yelp_location_coordinate_latitude%>,<%=r.yelp_location_coordinate_longitude%>);
           
           var marker<%=r.id%> = new google.maps.Marker({
-            position:markerposition
+            position:markerposition,
+            <% if r.id == 50..70 %>
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            <%else%><%end%>
           });
 
           marker<%=r.id%>.setMap(map);
 
-          var contentString = '<%= r.name %>';
+          var contentString = '<div>Restaurant: <%= r.name %></div>' + '<br>' + '<div>Current Rank: <%= r.rank %></div>' + '<br>' +'<div>Phone: <%= r.yelp_display_phone %></div>'+ '<br>' +'<div>Yelp Review: <img src=<%= r.yelp_rating_img_url_small %>> </div>';
 
           var infowindow<%=r.id%> = new google.maps.InfoWindow({
             content: contentString
@@ -57,10 +60,16 @@
 
           google.maps.event.addListener(marker<%=r.id%>, 'click', function() {
             infowindow<%=r.id%>.open(map,marker<%=r.id%>);
+
+          });
+          
+          google.maps.event.addListener(map, 'click', function() {
+            infowindow<%=r.id%>.close();
+
           });
           <% end %>
 
-          
+        
         }
         google.maps.event.addDomListener(window, 'load', initialize);
       </script>
