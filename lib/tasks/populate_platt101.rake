@@ -63,3 +63,18 @@ task :insert_yelpid => :environment do
       r.save
     end
 end
+
+task :wash_hoods => :environment do
+    
+  @restaurants = Restaurant.all
+  @restaurants.each do |r|
+    begin
+    r.yelp_location_neighborhoods = r.yelp_location_neighborhoods.gsub(/---\n- /, "")
+    r.yelp_location_neighborhoods = r.yelp_location_neighborhoods.gsub(/\n/, "") 
+    r.save
+    rescue
+      puts "couldnt gsub"
+      next
+    end  
+  end
+end
