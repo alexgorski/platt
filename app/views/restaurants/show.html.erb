@@ -45,9 +45,9 @@
         var marker = new google.maps.Marker({
 			  	position:myCenter,
           <% unless current_user.reviews.where(:restaurant_id => @restaurant.id).first.date_dined == nil %>
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            icon: '/assets/green/number_<%=@restaurant.id%>.png'
             <% else %>
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            icon: '/assets/blue/number_<%=@restaurant.id%>.png'
             <% end %>
 			  });
 
