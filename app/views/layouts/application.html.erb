@@ -26,7 +26,7 @@
     <div class="navbar">
 
   <div class="navbar-inner">
-    <a class="brand" href="www.platt101.com">Platt</a>
+    <a class="brand" href="restaurants">Platt</a>
     <ul class="nav">
       <li><a href="<%= restaurants_path %>">Restaurants</a></li>
       <li><a href="<%= reviews_path %>">Reviews</a></li>
@@ -36,7 +36,7 @@
       <li class="logout"><a href=""></a> <%= link_to "Log Out", session_path("current"),
         method: "delete" %></li>
         <% else %> 
-         <li class="float_right"> <a href='#' ><%= link_to "Login", new_session_path %></li>
+         <li class="float_right"> <a href='#'><%= link_to "Login", new_session_path %></li>
       <% end %>
     </ul>
   </div>
