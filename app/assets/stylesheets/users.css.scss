@@ -1,14 +1,24 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+*
+	{
+	box-sizing: border-box;
+}
 h1 {
-	padding-left: 120px;
+	padding-left: 75px;
 	color: black;
 }
 
 .span12 {
-	padding-left: 120px;
+	padding-left: 75px;
+}
+
+.span4 {
+	padding: 10px;
+	border: solid;
+	background: rgba(0, 0, 0, .6);
+	color: white;
 }
 
 

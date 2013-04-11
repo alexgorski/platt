@@ -11,7 +11,7 @@
           </ul>
         </div>
       <% end %>
-
+      <div class="span4">
       <div class="field">
         <%= f.label :email %><br />
         <%= f.text_field :email, :placeholder => "example@example.com"%>
@@ -24,9 +24,11 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation %>
       </div>
-      <div class="actions">
-        <%= f.submit "Submit" %>
-      </div>
+
+
+      <button class="btn btn-primary" type="submit">Sign Up</button>
+
     <% end %>
+  </div>
   </div>
 </div>
