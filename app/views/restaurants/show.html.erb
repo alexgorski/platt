@@ -1,13 +1,13 @@
 
 
-
+<% @review = Review.comments(current_user.id, @restaurant.id) %>
 <body>
     
-  <h1><%= @restaurant.name %></h1>
+  <h1><%= @restaurant.name %>| <%= link_to "Add Review", edit_review_path(@review) %></h1>
   <h2>Rank: <%= @restaurant.rank.chop %></h2>
   <h2>Stars: <%= @restaurant.stars %></h2>
   <h2>NY MAG Review:<%= link_to @restaurant.name, "http://nymag.com/listings/restaurant/#{@restaurant.nymag_page}" %> </h2>
-  <% @review = Review.comments(current_user.id, @restaurant.id) %>
+  
   <h2><%=link_to "Add Review", edit_review_path(@review.id) %>   </h2>
   <h2>Yelp Image: <img src=<%= @restaurant.yelp_image_url %>></h2>
   <h2>Yelp URL: <a href=<%= @restaurant.yelp_url %> >Yelp Link </a></h2>
