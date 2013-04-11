@@ -9,7 +9,23 @@
   <h2>NY MAG Review:<%= link_to @restaurant.name, "http://nymag.com/listings/restaurant/#{@restaurant.nymag_page}" %> </h2>
   <% @review = Review.comments(current_user.id, @restaurant.id) %>
   <h2><%=link_to "Add Review", edit_review_path(@review.id) %>   </h2>
-    
+  <h2>Yelp Image: <img src=<%= @restaurant.yelp_image_url %>></h2>
+  <h2>Yelp URL: <a href=<%= @restaurant.yelp_url %> >Yelp Link </a></h2>
+  <h2>Yelp Phone: <%= @restaurant.yelp_phone %></h2>
+  <h2>Yelp Display Phone: <%= @restaurant.yelp_display_phone %></h2>
+  <h2>Yelp Review Count: <%= @restaurant.yelp_review_count %></h2>
+  <h2>Yelp Categories: <%= @restaurant.yelp_categories %></h2>
+  <h2>Yelp Rating: <%= @restaurant.yelp_rating %></h2>
+  <h2>Yelp Rating Image: <img src=<%= @restaurant.yelp_rating_img_url %>></h2>
+  <h2>Yelp Rating Image: <img src=<%= @restaurant.yelp_rating_img_url_small %>></h2>
+  <h2>Yelp Rating Image: <img src=<%= @restaurant.yelp_rating_img_url_large %>></h2>
+  <h2>Yelp Snippet Text: <%= @restaurant.yelp_snippet_text %></h2>
+  <h2>Yelp Postal Code: <%= @restaurant.yelp_location_postal_code %></h2>
+  <h2>Yelp Country Code: <%= @restaurant.yelp_location_country_code %></h2>
+  <h2>Yelp Cross Streets: <%= @restaurant.yelp_location_cross_streets %></h2>
+  <h2>Yelp Neighborhoods: <%= @restaurant.yelp_location_neighborhoods %></h2>
+  <h2>Yelp Display Address: <%= @restaurant.yelp_location_display_address %></h2>
+
 
 
 <div class="map" id="map-canvas" style="width:500px;height=500px"></div>
