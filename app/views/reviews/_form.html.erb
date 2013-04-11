@@ -1,6 +1,6 @@
 <div class='row-fluid'>
     <div class='span12'>
-      <% form_for(@review) do |r| %>
+      <%= form_for(@review) do |r| %>
       <div> <%= r.label :restaurant_id %>
       <%= r.select(:restaurant_id, Restaurant.all.collect {|r| [r.name, r.id]}, {:prompt => 'Select Restaurant'}) %>
       </div>
@@ -9,9 +9,9 @@
         <%= r.label :date_dined, "Date Dined" %>
         <%= r.date_select :date_dined %><br />
       </div>
-      <div>
+      <div class="text_area">
         <%= r.label :comments %>
-        <%= r.text_field :comments %>
+        <%= r.text_area :comments %>
       </div>
         
       <div class="actions">

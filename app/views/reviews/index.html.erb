@@ -9,7 +9,7 @@
         <th class="stars">Stars</th>
         <th class="date_dined">Date Dined</th>
         <th class="comments">Comments</th>
-        <% @reviews.sort.each do |r| %>
+        <% @reviews.sort{|x,y| x.rank <=> y.rank}.each do |r| %>
         <tr>
           <td class="rank">
             <%= Restaurant.find(r.restaurant_id).rank %>

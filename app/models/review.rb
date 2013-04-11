@@ -9,5 +9,8 @@ class Review < ActiveRecord::Base
   def self.comments(user_id, restaurant_id)
     Review.where(:user_id => user_id, :restaurant_id => restaurant_id).first_or_create(:comments => "Add Comments!")
   end
+  def rank
+    '%03d' % Restaurant.find(self.restaurant_id).rank.chomp('.')
+  end
 
 end
