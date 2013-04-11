@@ -14,8 +14,10 @@ class ReviewsController < ApplicationController
   end
 
   def index
+
+   
     if current_user
-    @reviews = Review.where(:user_id => current_user.id)
+    @reviews = Review.where(:user_id => current_user.id, :date_dined => (Time.now - 100.years)..Time.now)
     else
     redirect_to new_user_path
     end
