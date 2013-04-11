@@ -21,12 +21,14 @@
           </td>
           <td class="date_dined">
           <%= r.date_dined %> 
-        </td>
-        <td class="comments">
-          <%= link_to r.comments, edit_review_path(r.id) %>
-        </td> 
+          </td>
+          <td class="comments">
+            <%= link_to r.comments, edit_review_path(r.id) %>
+          </td> 
+          <% end %> 
+        </tr>
 
-        <% end %>  
+         
       </table>
     </div>
   </div>
