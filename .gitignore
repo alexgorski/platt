@@ -14,6 +14,6 @@
 /log/*.log
 /tmp
 
-/locales/database.yml
+/config/database.yml
 
 tweets.rb
