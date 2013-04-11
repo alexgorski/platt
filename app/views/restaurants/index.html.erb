@@ -1,28 +1,33 @@
-<h1>The Platt 101 </h1>
 
 
-  <div class="container">
-    <table>
-      <th class="rank">Rank</th>
-      <th class="name">Name</th>
-      <th class="name">Number of Yelp Reviews</th>
-      <th class="stars">Stars</th>
-      <!-- <th class="my_review">My Review</th> -->
-      <th class="comments">Comments</th>
-      <% @restaurants.each do |r| %>
-      <tr>  
-        <td class="rank"><%= r.rank %></td> 
-        <td class="name"><%= link_to r.name, restaurant_path(r.id) %></td> 
-        <td class="name"><%= r.yelp_review_count %></td> 
-        <td class="stars"><%= r.stars %></td>
-        <% @review = Review.comments(current_user.id, r.id) %>
-        <!-- <td class="my_review"><%= link_to "Review", edit_review_path(@review.id) %></td> -->
+<div class='row-fluid'>
+  <div class='span12'>
+    <h1>The Platt 101 </h1>
+    <div class="container">
+      <table>
+        <th class="rank">Rank</th>
+        <th class="name">Name</th>
+        <th class="name">Number of Yelp Reviews</th>
+        <th class="stars">Stars</th>
+        <!-- <th class="my_review">My Review</th> -->
+        <th class="comments">Comments</th>
+        <% @restaurants.each do |r| %>
+        <tr>  
+          <td class="rank"><%= r.rank %></td> 
+          <td class="name"><%= link_to r.name, restaurant_path(r.id) %></td> 
+          <td class="name"><%= r.yelp_review_count %></td> 
+          <td class="stars"><%= r.stars %></td>
+          <% @review = Review.comments(current_user.id, r.id) %>
+          <!-- <td class="my_review"><%= link_to "Review", edit_review_path(@review.id) %></td> -->
 
-       <td class="comments"><%= link_to (Review.comments(current_user.id, r.id)).comments, edit_review_path(@review.id)  %></td> 
-      </tr>
-      <% end %>  
-    </table>
+         <td class="comments"><%= link_to (Review.comments(current_user.id, r.id)).comments, edit_review_path(@review.id)  %></td> 
+        </tr>
+        <% end %>  
+      </table>
+    </div>
   </div>
+</div>
+
     
 
   <div class="map" id="map-canvas" style="width:800px;height=800px"></div>
@@ -75,10 +80,6 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);
       </script>
-
-      //what content do we want in info window
-      //how to close infowindow
-      //how to change user marker from red to green when a user goes to a restaurant
 
 
 
