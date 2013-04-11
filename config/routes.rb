@@ -7,7 +7,7 @@ Platt::Application.routes.draw do
 
   resources :cities
 
-
+  get '/maps' => 'maps#show'
   root :to => 'users#new'
   resources :restaurants
 

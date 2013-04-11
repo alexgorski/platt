@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
 
   def show
-  @restaurants  = Restaurants.all
+  @restaurants  = Restaurant.all
   end
 
 end
