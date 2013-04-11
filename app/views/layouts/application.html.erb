@@ -34,16 +34,15 @@
       <li><a href=""></a> <%= link_to "Log Out", session_path("current"),
         method: "delete" %></li>
         <% else %> 
-         <li> <a href='#'><%= link_to "Login", new_session_path %></li>
+         <li class="float_right"> <a href='#'><%= link_to "Login", new_session_path %></li>
       <% end %>
     </ul>
   </div>
 </div>
 
       
-        </div>
-          <%= yield %>
-        </div>
-    </ul>
+    </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
