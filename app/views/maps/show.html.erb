@@ -27,7 +27,9 @@
 
           marker<%=r.id%>.setMap(map);
 
-          var contentString = '<div>Restaurant: <%= r.name %></div>' + '<br>' + '<div>Current Rank: <%= r.rank %></div>' + '<br>' +'<div>Phone: <%= r.yelp_display_phone %></div>'+ '<br>' +'<div>Yelp Review: <img src=<%= r.yelp_rating_img_url_small %>> </div>';
+          var contentString = '<div>Restaurant: <%= link_to r.name, restaurant_path(r.id) %></div>' + '<br>' + '<div>Current Rank: <%= r.rank %></div>' + '<br>' +'<div>Phone: <%= r.yelp_display_phone %></div>'+ '<br>' +'<div>Yelp Review: <img src=<%= r.yelp_rating_img_url_small %>> </div>' + '<br>' +'<div>My Review: <%= link_to "New Review", review_path(@reviews.where(:restaurant_id => r.id).first.id) %> </div>'+ '<br>' 
+
+          ;
 
           var infowindow<%=r.id%> = new google.maps.InfoWindow({
             content: contentString
@@ -48,3 +50,5 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);
       </script>
+
+      <!-- +'<div>My Review: <%#= render :partial => './reviews/form', :object => {:review => @review = @reviews.where(:restaurant_id => r.id).first}%> </div>' -->
