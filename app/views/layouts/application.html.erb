@@ -27,14 +27,14 @@
   <div class="navbar-inner">
     <a class="brand" href="localhost:3000">Platt</a>
     <ul class="nav">
-      <li><a href="<% restaurants_path %>">Restaurants</a></li>
-      <li><a href="<% reviews_path %>">Reviews</a></li>
+      <li><a href="<%= restaurants_path %>">Restaurants</a></li>
+      <li><a href="<%= reviews_path %>">Reviews</a></li>
       <% if current_user %>
-      <li><a href=""></a>Logged in as <%= current_user.email %></li>
-      <li><a href=""></a> <%= link_to "Log Out", session_path("current"),
+      <li class="current_user"><a href=""></a>Logged in as <%= current_user.email %></li>
+      <li class="logout"><a href=""></a> <%= link_to "Log Out", session_path("current"),
         method: "delete" %></li>
         <% else %> 
-         <li class="float_right"> <a href='#'><%= link_to "Login", new_session_path %></li>
+         <li class="float_right"> <a href='#' ><%= link_to "Login", new_session_path %></li>
       <% end %>
     </ul>
   </div>
