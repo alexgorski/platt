@@ -14,8 +14,11 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    if current_user
     @reviews = Review.where(:user_id => current_user.id)
-
+    else
+    redirect_to new_user_path
+    end
   end
   def show
     @review = Review.find(params[:id])
