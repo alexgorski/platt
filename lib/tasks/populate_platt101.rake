@@ -1,5 +1,5 @@
 task :insert_platt101 => :environment do
-  @restaurants = File.readlines('./Data/masterlist.txt')
+  @restaurants = File.readlines('./data/masterlist.txt')
   @restaurants.each do |string|
     period = string.index(".")
     star = string.index('*')
