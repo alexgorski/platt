@@ -1,4 +1,4 @@
-<h1> <%= Restaurant.find(@review.restaurant_id).name %> | <%= link_to "Update", edit_review_path(@review) %></h1> <br>
+<h1> <%= link_to Restaurant.find(@review.restaurant_id).name, restaurant_path(Restaurant.find(@review.restaurant_id).id) %> | <%= link_to "Update", edit_review_path(@review) %></h1> <br>
 
   <h2>Visited On:
   <%= @review.date_dined %>

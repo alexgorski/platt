@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user), notice: "Thank you for signing up"
+      redirect_to restaurants_path, notice: "Thank you for signing up"
     else
       render "new"
     end
