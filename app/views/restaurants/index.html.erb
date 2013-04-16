@@ -8,6 +8,7 @@
       <table>
         <th class="rank">Rank</th>
         <th class="name">Name</th>
+        <th class="stars">Deals</th>
         <th class="stars">Yelp Reviews</th>
         <th class="stars">Platt Stars</th>
         <!-- <th class="my_review">My Review</th> -->
@@ -16,6 +17,7 @@
         <tr>  
           <td class="rank"><%= r.rank %></td> 
           <td class="name"><%= link_to r.name, restaurant_path(r.id) %></td> 
+          <td class='deals'><%= link_to r.yipit_url %></td>
           <td class="stars"><%= link_to r.yelp_review_count, r.yelp_url %></td> 
           <td class="stars"><%= r.stars %></td>
           <% @review = Review.comments(current_user.id, r.id) %>
@@ -23,7 +25,7 @@
 
          <td class="comments"><%= link_to (Review.comments(current_user.id, r.id)).comments, edit_review_path(@review.id)  %></td> 
         </tr>
-        <% end %>  
+        <% end %>
       </table>
     </div>
   </div>

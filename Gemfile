@@ -27,6 +27,8 @@ gem 'yelpster'
 #gem "therubyracer"
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+gem "yipit_n4l", require: "yipit"
+gem 'whenever', :require => false
 
 group :development do
   gem 'better_errors'
