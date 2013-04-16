@@ -1,3 +1,4 @@
+
 task :insert_platt101 => :environment do
   @restaurants = File.readlines('./data/masterlist.txt')
   @restaurants.each do |string|
@@ -79,26 +80,28 @@ task :wash_hoods => :environment do
   end
 end
 
-task :yipit => :environment do
-  client = Yipit::Client.new('9fntGCDLgYPqZ8gq')
+namespace :yipit_cron do
+  task :yipit => :environment do
+    client = Yipit::Client.new('9fntGCDLgYPqZ8gq')
 
-  @restaurants = Restaurant.all
-  @restaurants.each do |r|
-    begin
-      yipit_num = r.yelp_phone
-      yipit_num.insert(+6,'-')
-      yipit_num.insert(+3,'-')
-      url = client.deals(:phone => yipit_num)
-      
-      if url.empty?
-        r.yipit_url = "No deals today"
-      else
-        r.yipit_url = url[0]["url"]
-      end
-      r.save
-      rescue
-       puts "No number."
-        next
+    @restaurants = Restaurant.all
+    @restaurants.each do |r|
+      begin
+        yipit_num = r.yelp_phone
+        yipit_num.insert(+6,'-')
+        yipit_num.insert(+3,'-')
+        url = client.deals(:phone => yipit_num)
+        
+        if url.empty?
+          r.yipit_url = "No deals today"
+        else
+          r.yipit_url = url[0]["url"]
+        end
+        r.save
+        rescue
+         puts "No number."
+          next
+        end
       end
     end
   end
