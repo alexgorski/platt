@@ -18,38 +18,44 @@ h1, h2, table {
   width: 800px;
 }
 
-.rank{
+.rank {
  padding: 5px;
  margin: 5px;
  width: 20px;
 }
-.name{
+
+.name {
  padding: 5px;
  margin: 5px;
  width: 175px;
 }
-.stars{
+
+.stars {
  padding: 5px;
  margin: 5px;
  width: 100px;
  text-align: center;
 }
-.date_dined{
+
+.date_dined {
  padding: 5px;
  margin: 5px;
  width: 80px;
 }
-.my_review{
+
+.my_review {
  padding: 5px;
  margin: 5px;
  width: 75px;
 }
-.comments{
+
+.comments {
  padding: 5px;
  margin: 5px;
  width: 500px;
 }
-.map{
+
+.map {
   height: 1200px;
   width: 1200px;
 }
@@ -123,3 +129,9 @@ a.brand:hover{
   color: #140B29;
   background-color: white;
 }
+
+.navbar-inner {
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+
