@@ -59,6 +59,7 @@ h1, h2, table {
   height: 1200px;
   width: 1200px;
 }
+
 p, ol, ul, {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -125,13 +126,10 @@ div {
   }
 }
 
-a.brand:hover{
+a.brand:hover {
   color: #140B29;
   background-color: white;
 }
 
-.navbar-inner {
-  font-family: verdana, arial, helvetica, sans-serif;
-}
 
 
