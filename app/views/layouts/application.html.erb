@@ -23,29 +23,27 @@
   <body>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <div class="navbar">
 
-  <div class="navbar-inner">
+<div class="navbar">
+<div class="navbar-inner">
     <a class="brand" href="<%= restaurants_path %>">Platt101</a>
     <div class='header_format'>
-    <ul class="nav">
-      <li><a href="<%= restaurants_path %>">Restaurants</a></li>
-      <li><a href="<%= reviews_path %>">Reviews</a></li>
-      <li><a href="<%= maps_path %>">Maps</a></li>
-      <% if current_user %>
-        <li><a href="">Logged in as <%= current_user.email %></a></li>
-      
-        <li><a href=""> <%= link_to "Log Out", session_path("current"),
-          method: "delete" %></a></li>
-      <% else %> 
-        <li><a href=""><%= link_to "Login", new_session_path %></a></li>
-      <% end %>
-    </ul>
+      <ul class="nav">
+        <li><a href="<%= restaurants_path %>">Restaurants</a></li>
+        <li><a href="<%= reviews_path %>">Reviews</a></li>
+        <li><a href="<%= maps_path %>">Maps</a></li>
+        <% if current_user %>
+          <li><a href="">Logged in as <%= current_user.email %></a></li>
+        
+          <li> <%= link_to "Log Out", session_path("current"),
+            method: "delete" %></li>
+        <% else %> 
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
-
-      
-    </div>
+</div>
       <%= yield %>
     </div>
   </body>
