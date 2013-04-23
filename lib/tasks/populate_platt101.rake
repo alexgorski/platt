@@ -61,6 +61,7 @@ task :insert_yelpid => :environment do
       r.yelp_location_neighborhoods = response["businesses"][0]["location"]["neighborhoods"]
       r.yelp_location_geo_accuracy = response["businesses"][0]["location"]["geo_accuracy"]
       r.yelp_deals = response["businesses"][0]["yelp_deals"]
+      puts r.yelp_phone
       r.save
     end
 end
@@ -84,6 +85,7 @@ namespace :yipit_cron do
   task :yipit => :environment do
     client = Yipit::Client.new(ENV["YIPIT"])
 
+
     @restaurants = Restaurant.all
     @restaurants.each do |r|
       begin
@@ -92,11 +94,13 @@ namespace :yipit_cron do
         yipit_num.insert(+3,'-')
         url = client.deals(:phone => yipit_num)
         
-        if url.empty?
-          r.yipit_url = "No deals today"
-        else
-          r.yipit_url = url[0]["url"]
-        end
+          if url.empty?
+            r.yipit_url = "No deals today"
+          else
+            r.yipit_url = url[0]["url"]
+            puts r.yipit_url
+          end
+        
         r.save
         rescue
          puts "No number."
