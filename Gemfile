@@ -29,6 +29,7 @@ gem 'yelpster'
 gem "twitter-bootstrap-rails"
 gem "yipit_n4l", require: "yipit"
 gem 'whenever', :require => false
+gem 'omniauth-facebook'
 
 group :development do
   gem 'better_errors'

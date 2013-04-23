@@ -15,6 +15,9 @@ Platt::Application.routes.draw do
   resources :users
   resources :sessions
 
+  match 'auth/facebook/callback', to: 'users#facebook_auth'
+  get 'auth/failure', to: redirect('/')
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
