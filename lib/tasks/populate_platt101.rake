@@ -4,9 +4,12 @@ task :insert_platt101 => :environment do
   @restaurants.each do |string|
     period = string.index(".")
     star = string.index('*')
+    rank_old = string.index(/\(\d*\)/)
+
     begin
       string = string.insert(period+1, ",")
       string = string.insert(star, ",")
+      string = string.insert(rank_old, ",")
     rescue
       next
 
@@ -21,12 +24,35 @@ task :insert_platt101 => :environment do
   end
 end
 
+task :parse_rank_old => :environment do
+  @restaurants = Restaurant.all
+  @restaurants.each do |string|
+    begin
+    rank_old = string.name.index(/\(\d*\)/)
+    temp_string = string.name.insert(rank_old, ",")
+    array = temp_string.split(',')
+    string.name = array[0].strip
+    puts string.name
+    string.rank_old = array[1].gsub("(","").gsub(")","")
+    puts string.rank_old
+    string.nymag_page = string.name.gsub(" ", '-').downcase
+    string.save
+    rescue
+    next
+    end
+  end
+
+end
+
+
+
+
 task :insert_yelpid => :environment do
     @restaurants = Restaurant.all
     client = Yelp::Client.new
     @restaurants.each do |r|
       request = Yelp::V2::Search::Request::Location.new(
-        :term => r.name, 
+        :term => r.name,
         :city => 'New York', 
         :state => 'NY',
         :limit => '1',
@@ -72,7 +98,9 @@ task :wash_hoods => :environment do
   @restaurants.each do |r|
     begin
     r.yelp_location_neighborhoods = r.yelp_location_neighborhoods.gsub(/---\n- /, "")
+    r.yelp_location_neighborhoods = r.yelp_location_neighborhoods.gsub(/\n- /, "-") 
     r.yelp_location_neighborhoods = r.yelp_location_neighborhoods.gsub(/\n/, "") 
+    puts r.yelp_location_neighborhoods
     r.save
     rescue
       puts "couldnt gsub"

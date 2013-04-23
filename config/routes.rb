@@ -15,11 +15,11 @@ Platt::Application.routes.draw do
   resources :users
   resources :sessions
 
-  get 'finish_account_signup' => "users#new_from_facebook"
-  post 'finish_account_signup' => "users#create_from_facebook", :as => "finish_account_signup"
+  #get 'finish_account_signup' => "users#new_from_facebook"
+  #post 'finish_account_signup' => "users#create_from_facebook", :as => "finish_account_signup"
 
-  match 'auth/facebook/callback', to: 'users#facebook_auth'
-  get 'auth/failure', to: redirect('/')
+  #match 'auth/facebook/callback', to: 'users#facebook_auth'
+  #get 'auth/failure', to: redirect('/')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

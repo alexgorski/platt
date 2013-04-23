@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416160037) do
+ActiveRecord::Schema.define(:version => 20130423205855) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130416160037) do
     t.text     "yelp_location_geo_accuracy"
     t.text     "yelp_deals"
     t.string   "yipit_url"
+    t.string   "rank_old"
   end
 
   create_table "reviews", :force => true do |t|
