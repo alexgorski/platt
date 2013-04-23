@@ -17,3 +17,6 @@
 /config/database.yml
 
 tweets.rb
+
+# Ignore application configuration
+/config/application.yml

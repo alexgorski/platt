@@ -30,10 +30,10 @@ task :insert_yelpid => :environment do
         :city => 'New York', 
         :state => 'NY',
         :limit => '1',
-        :consumer_key => 'UCynPrJXZHFlZ3K0Hb_ZmA', 
-        :consumer_secret => 'XJ3Jwa3ZaLWeS8Im33g8Hx8L3YQ', 
-        :token => 'mcMxIBhNVRgf9LAXOwyyv3EXMbTxeoVa', 
-        :token_secret => 'UCGGQ2iHztv0brGDN_1NgrCnQVo')
+        :consumer_key => ENV["YELP_KEY"], 
+        :consumer_secret => ENV["YELP_SECRET"], 
+        :token => ENV["YELP_TOKEN"], 
+        :token_secret => ENV["YELP_TOKEN_SECRET"])
       response = client.search(request)
       r.yelp_id = response["businesses"][0]["id"]
       r.yelp_image_url = response["businesses"][0]["image_url"]
@@ -82,7 +82,7 @@ end
 
 namespace :yipit_cron do
   task :yipit => :environment do
-    client = Yipit::Client.new('9fntGCDLgYPqZ8gq')
+    client = Yipit::Client.new(ENV["YIPIT"])
 
     @restaurants = Restaurant.all
     @restaurants.each do |r|
