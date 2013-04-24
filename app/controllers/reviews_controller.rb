@@ -23,22 +23,28 @@ class ReviewsController < ApplicationController
     end
   end
   def show
-    @review = Review.find(params[:id])
+    if current_user.reviews[params[:id].to_i]
+      @review = Review.find(params[:id])
+    else
+      redirect_to reviews_path
+    end
   end
   
   def edit
-
-    @review = Review.find(params[:id])
+    if current_user.reviews[params[:id].to_i]
+      @review = Review.find(params[:id])
+    else
+      redirect_to reviews_path
+    end
   end
   
-  def update
+  def update   
     @review = Review.find(params[:id])
-    if @review.update_attributes(params[:review])
-      redirect_to action: :show, id: @review.id
-    else
-      render 'edit'
-    end
-
+      if @review.update_attributes(params[:review])
+        redirect_to action: :show, id: @review.id
+      else
+        render 'edit'
+      end
   end
 
 
