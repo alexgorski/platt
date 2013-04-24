@@ -7,6 +7,17 @@ class Restaurant < ActiveRecord::Base
   
   accepts_nested_attributes_for :users
 
+  def self.visited(current_user)
+    been_to = current_user.reviews.collect {|rvw| rvw.restaurant_id if rvw.date_dined != nil}.delete_if{|i| i == nil}
+    Restaurant.find(been_to)
+  end
+
+  def self.not_visited(current_user)
+    been_to = current_user.reviews.collect {|rvw| rvw.restaurant_id if rvw.date_dined == nil}.delete_if{|i| i == nil}
+    Restaurant.find(been_to)
+  end
+
+
   
 end
 
