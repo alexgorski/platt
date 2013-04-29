@@ -13,8 +13,8 @@ class Restaurant < ActiveRecord::Base
   end
 
   def self.not_visited(current_user)
-    been_to = current_user.reviews.collect {|rvw| rvw.restaurant_id if rvw.date_dined == nil}.delete_if{|i| i == nil}
-    Restaurant.find(been_to)
+    not_been_to = current_user.reviews.collect {|rvw| rvw.restaurant_id if rvw.date_dined == nil}.delete_if{|i| i == nil}
+    Restaurant.find(not_been_to)
   end
 
 

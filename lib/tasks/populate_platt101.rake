@@ -1,3 +1,5 @@
+#require "#{Rails.root}/app/helpers/application_helper"
+#include ApplicationHelper
 
 task :insert_platt101 => :environment do
   @restaurants = File.readlines('./data/masterlist.txt')
@@ -89,6 +91,9 @@ task :insert_yelpid => :environment do
       r.yelp_deals = response["businesses"][0]["yelp_deals"]
       puts r.yelp_phone
       r.save
+      #broadcast "/messages/new" do
+      #  $("#Yelp_Reviews").replaceWith(<h2 id="Yelp_Reviews">"Yelp Review Count: <%= :yelp_review_count %></h2>");
+      #end
     end
 end
 
