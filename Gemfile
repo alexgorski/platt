@@ -20,6 +20,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'thin'
+gem 'faye'
 gem 'debugger'
 gem 'jquery-rails'
 gem 'pry'
