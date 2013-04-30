@@ -55,7 +55,9 @@
 
           marker<%=b.id%>.setMap(map);
 
-          var contentString = '<div>Restaurant: <%= link_to b.name, restaurant_path(b.id) %></div>' + '<br>' + '<div>Current Rank: <%= b.rank %></div>' + '<br>' +'<div>Phone: <%= b.yelp_display_phone %></div>'+ '<br>' +'<div>Yelp Review: <img src=<%= b.yelp_rating_img_url_small %>> </div>' + '<br>' +'<div>My Review: <%= link_to "Update Review", review_path(@reviews.where(:restaurant_id => b.id).first.id) %> </div>';
+          var contentString = '<div>Restaurant: <%= link_to b.name, restaurant_path(b.id) %></div>' + '<br>' + '<div>Current Rank: <%= b.rank %></div>' + '<br>' +'<div>Phone: <%= b.yelp_display_phone %></div>'+ '<br>' +'<div>Yelp Review: <img src=<%= b.yelp_rating_img_url_small %>> </div>' + '<br>' + '<div>My Review: <%= link_to "Update Review", review_path(@reviews.where(:restaurant_id => b.id).first.id) %> </div>';
+
+          
 
           var infowindow<%=b.id%> = new google.maps.InfoWindow({
             content: contentString
@@ -76,5 +78,3 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);
       </script>
-
- 

@@ -1,6 +1,6 @@
-<div class='row-fluid'>
+<div>
     <div class='span12'>
-      <%= form_for(@review) do |r| %>
+      <%= form_for(form) do |r| %>
       <div> <%= r.label :restaurant_id %>
       <%= r.select(:restaurant_id, Restaurant.all.collect {|r| [r.name, r.id]}, {:prompt => 'Select Restaurant'}) %>
       </div>

@@ -48,3 +48,7 @@
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </html>
+
+# from maps#show
+// <%= render :partial => "reviews/form", :locals => { :form => b.user_review(current_user.id) } %>
+// '<div>My Review: <%= link_to "Update Review", review_path(@reviews.where(:restaurant_id => b.id).first.id) %> </div>'

@@ -17,6 +17,9 @@ class Restaurant < ActiveRecord::Base
     Restaurant.find(not_been_to)
   end
 
+  def user_review(current_user)
+    self.reviews.where(:user_id => current_user).first
+  end
 
   
 end

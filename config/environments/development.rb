@@ -37,6 +37,11 @@ Platt::Application.configure do
 end
 
 silence_warnings do
-  require 'pry'
-  IRB = Pry
+  begin
+    require 'pry'
+    IRB = Pry
+    module Pry::RailsCommands ;end
+    IRB::ExtendCommandBundle = Pry::RailsCommands
+  rescue LoadError
+  end
 end
