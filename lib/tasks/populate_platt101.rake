@@ -155,7 +155,7 @@ task :twitter_num => :environment do
   @restaurants.each do |r|
       r.tweets_num = 0 
       r.tweets_last_id = 0
-      @tweets = Twitter.search('r.name', :geocode => '40.768483,-73.981248,20mi', :count => '100', :since_id => 0)
+      @tweets = Twitter.search(r.name, :geocode => '40.768483,-73.981248,20mi', :count => '100', :since_id => r.tweets_last_id, :rpp => '100')
       @tweets = @tweets.to_hash
       @tweet = @tweets[:statuses]
       @tweet.each do |tweet|
