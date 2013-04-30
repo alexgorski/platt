@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423205855) do
+ActiveRecord::Schema.define(:version => 20130430192852) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20130423205855) do
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.integer  "city_id"
     t.string   "rank"
     t.string   "stars"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20130423205855) do
     t.text     "yelp_deals"
     t.string   "yipit_url"
     t.string   "rank_old"
+    t.integer  "tweets_num"
+    t.integer  "tweets_last_id",                     :limit => 8
   end
 
   create_table "reviews", :force => true do |t|

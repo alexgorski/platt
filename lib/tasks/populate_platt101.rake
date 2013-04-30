@@ -143,5 +143,29 @@ namespace :yipit_cron do
     end
   end
 
+task :twitter_num => :environment do
+  Twitter.configure do |config|
+    config.consumer_key = ENV['TWITTER_KEY']
+    config.consumer_secret = ENV['TWITTER_SECRET']
+    config.oauth_token = ENV['TWITTER_OATH_TOKEN']
+    config.oauth_token_secret = ENV['TWITTER_OATH_TOKEN_SECRET']
+  end
 
+  @restaurants = Restaurant.all
+  @restaurants.each do |r|
+      r.tweets_num = 0 
+      r.tweets_last_id = 0
+      @tweets = Twitter.search('r.name', :geocode => '40.768483,-73.981248,20mi', :count => '100', :since_id => 0)
+      @tweets = @tweets.to_hash
+      @tweet = @tweets[:statuses]
+      @tweet.each do |tweet|
+        puts r.name
+        r.tweets_num += 1
+        puts r.tweets_num
+        r.tweets_last_id = tweet[:id]
+        puts r.tweets_last_id
 
+        r.save
+      end
+  end
+end
