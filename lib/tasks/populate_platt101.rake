@@ -169,3 +169,12 @@ task :twitter_num => :environment do
       end
   end
 end
+
+task :instagram_num => :environment do
+  Instagram.configure do |config|
+    config.client_id = ENV['INSTGRAM_ID']
+    config.client_secret = ENV['INSTAGRAM_SECRET']
+  end
+
+  
+end

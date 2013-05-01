@@ -35,6 +35,7 @@ gem 'whenever', :require => false
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'twitter'
+gem 'instagram'
 
 group :development do
   gem 'better_errors'
