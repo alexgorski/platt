@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430192852) do
+ActiveRecord::Schema.define(:version => 20130502205335) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130430192852) do
     t.string   "rank_old"
     t.integer  "tweets_num"
     t.integer  "tweets_last_id",                     :limit => 8
+    t.integer  "tweets_total",                       :limit => 8
   end
 
   create_table "reviews", :force => true do |t|
