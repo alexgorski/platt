@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20130502205335) do
     t.string   "rank_old"
     t.integer  "tweets_num"
     t.integer  "tweets_last_id",                     :limit => 8
-    t.integer  "tweets_total",                       :limit => 8
+    t.text     "tweets_total"
   end
 
   create_table "reviews", :force => true do |t|

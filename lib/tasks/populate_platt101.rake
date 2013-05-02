@@ -153,20 +153,28 @@ task :twitter_num => :environment do
 
   @restaurants = Restaurant.all
   @restaurants.each do |r|
-      r.tweets_num = 0 
-      r.tweets_last_id = 0
-      @tweets = Twitter.search(r.name, :geocode => '40.768483,-73.981248,20mi', :count => '100', :since_id => r.tweets_last_id, :rpp => '100')
-      @tweets = @tweets.to_hash
-      @tweet = @tweets[:statuses]
-      @tweet.each do |tweet|
-        puts r.name
-        r.tweets_num += 1
-        puts r.tweets_num
-        r.tweets_last_id = tweet[:id]
-        puts r.tweets_last_id
-
-        r.save
+    r.tweets_num = 0 
+    r.tweets_last_id = 0
+    #figure out how to use serialize
+    r.tweets_total = []
+    @tweets = Twitter.search(r.name, :geocode => '40.768483,-73.981248,20mi', :count => '100', :since_id => r.tweets_last_id, :rpp => '100')
+    @tweets = @tweets.to_hash
+    @tweet = @tweets[:statuses]
+    @tweet.each do |tweet|
+      puts r.name
+      r.tweets_num += 1
+      r.tweets_last_id = tweet[:id]
+      puts r.tweets_num
+      puts r.tweets_last_id
+    end
+      if r.tweets_total.size <=29
+      r.tweets_total << r.tweets_num
+      else
+        r.tweets_total.shift
+        r.tweets_total << r.tweets_num
       end
+    puts r.tweets_total
+    r.save
   end
 end
 
