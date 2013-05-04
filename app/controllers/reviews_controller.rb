@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   end
   
   def show
-    if current_user.reviews[params[:id].to_i]
+    if current_user.reviews(params[:id].to_i)
       @review = Review.find(params[:id])
     else
       redirect_to reviews_path
@@ -30,7 +30,8 @@ class ReviewsController < ApplicationController
   end
   
   def edit
-    if current_user.reviews[params[:id].to_i]
+    binding.pry
+    if current_user.reviews(params[:id].to_i)
       @review = Review.find(params[:id])
     else
       redirect_to reviews_path
