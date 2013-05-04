@@ -30,7 +30,6 @@ class ReviewsController < ApplicationController
   end
   
   def edit
-    binding.pry
     if current_user.reviews(params[:id].to_i)
       @review = Review.find(params[:id])
     else
